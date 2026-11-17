@@ -46,7 +46,7 @@ export function HomePage({ t, onNavigate, onRequestQuote }: HomePageProps) {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-14 sm:pt-24 sm:pb-20 lg:pt-28 lg:pb-24">
           <div className="max-w-3xl space-y-6">
-            <p className="text-xs sm:text-sm font-semibold tracking-wide text-[#F28C00]">
+            <p className="text-sm sm:text-base font-semibold tracking-wide text-[#F28C00]">
               {t.hero.originMarker}
             </p>
 
@@ -88,7 +88,7 @@ export function HomePage({ t, onNavigate, onRequestQuote }: HomePageProps) {
             {t.hero.badges.map((badge, idx) => (
               <div
                 key={badge}
-                className="flex items-center gap-3 text-sm font-medium text-white/95"
+                className="flex items-center gap-3 text-base font-medium text-white/95"
               >
                 <span className="font-mono-tabular text-xs font-bold text-[#F28C00] shrink-0">
                   0{idx + 1}
