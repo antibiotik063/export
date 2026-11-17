@@ -2,6 +2,7 @@ import { Mail, MessageSquare, Phone } from 'lucide-react';
 import { ASSETS, CONTACT_INFO } from '../data/assets';
 import { TranslationSchema } from '../i18n/translations';
 import { Language, PageRoute } from '../types';
+import { routePath } from '../routing';
 
 interface FooterProps {
   t: TranslationSchema;
@@ -52,31 +53,28 @@ export function Footer({
             </h3>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <button
-                  type="button"
-                  onClick={() => onNavigate('home')}
+                <a href={routePath(language, 'home')}
+                  onClick={(event) => { event.preventDefault(); onNavigate('home'); }}
                   className="text-slate-300 hover:text-white transition-colors cursor-pointer"
                 >
                   {t.nav.home}
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={() => onNavigate('products')}
+                <a href={routePath(language, 'products')}
+                  onClick={(event) => { event.preventDefault(); onNavigate('products'); }}
                   className="text-slate-300 hover:text-white transition-colors cursor-pointer"
                 >
                   {t.nav.products}
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={() => onNavigate('logistics')}
+                <a href={routePath(language, 'logistics')}
+                  onClick={(event) => { event.preventDefault(); onNavigate('logistics'); }}
                   className="text-slate-300 hover:text-white transition-colors cursor-pointer"
                 >
                   {t.nav.logistics}
-                </button>
+                </a>
               </li>
             </ul>
           </div>
