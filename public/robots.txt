@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /auth
+Disallow: /api/private
+Disallow: /.env
+Disallow: /server
+Disallow: /logs
+
+Sitemap: https://www.export-eur.com/sitemap.xml
