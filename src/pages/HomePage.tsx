@@ -272,14 +272,24 @@ export function HomePage({ t, onNavigate, onRequestQuote }: HomePageProps) {
                     <div className="text-xs font-medium text-slate-300 mb-1">
                       {t.quickQuote.whatsappLabel}
                     </div>
-                    <a
-                      href={CONTACT_INFO.phoneHref}
-                      dir="ltr"
-                      className="inline-flex items-center gap-2.5 text-base font-semibold font-mono-tabular text-white hover:text-[#F28C00] transition-colors"
-                    >
-                      <Phone className="w-4 h-4 text-[#F28C00] shrink-0" aria-hidden="true" />
-                      <span>{CONTACT_INFO.phoneDisplay}</span>
-                    </a>
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+                      <a
+                        href={CONTACT_INFO.phoneHref}
+                        dir="ltr"
+                        className="inline-flex items-center gap-2.5 whitespace-nowrap text-base font-semibold font-mono-tabular text-white hover:text-[#F28C00] transition-colors"
+                      >
+                        <Phone className="w-4 h-4 text-[#F28C00] shrink-0" aria-hidden="true" />
+                        <span>{CONTACT_INFO.phoneDisplay}</span>
+                      </a>
+                      <a
+                        href={CONTACT_INFO.additionalPhoneHref}
+                        dir="ltr"
+                        className="inline-flex items-center gap-2.5 whitespace-nowrap text-base font-semibold font-mono-tabular text-white hover:text-[#F28C00] transition-colors"
+                      >
+                        <Phone className="w-4 h-4 text-[#F28C00] shrink-0" aria-hidden="true" />
+                        <span>{CONTACT_INFO.additionalPhoneDisplay}</span>
+                      </a>
+                    </div>
                   </div>
 
                   <div>
