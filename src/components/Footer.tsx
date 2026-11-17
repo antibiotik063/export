@@ -108,6 +108,16 @@ export function Footer({
               </li>
               <li>
                 <a
+                  href={CONTACT_INFO.additionalPhoneHref}
+                  className="inline-flex items-center gap-2 text-slate-300 hover:text-white transition-colors font-mono-tabular"
+                  dir="ltr"
+                >
+                  <Phone className="w-4 h-4 text-[#F28C00] shrink-0" aria-hidden="true" />
+                  <span>{CONTACT_INFO.additionalPhoneDisplay}</span>
+                </a>
+              </li>
+              <li>
+                <a
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -156,9 +166,14 @@ export function Footer({
           </div>
         </div>
 
-        <div className="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-slate-400">
-          <p>{t.footer.copyright}</p>
-          <p>{t.footer.jurisdiction}</p>
+        <div className="pt-8 flex flex-col sm:flex-row sm:items-start justify-between gap-3 text-xs text-slate-400">
+          <div className="space-y-2">
+            <p>{t.footer.copyright}</p>
+            <p dir="ltr">
+              ИНН: 1800048733 · КПП: 180001001 · ОГРН: 1261800003365
+            </p>
+          </div>
+          <p className="sm:text-end">{t.footer.jurisdiction}</p>
         </div>
       </div>
     </footer>
