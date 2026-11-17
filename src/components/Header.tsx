@@ -66,7 +66,7 @@ export function Header({
           {navItems.map((item) => {
             const isActive = currentPage === item.id;
             return (
-              <a href={routePath(language, item.id)} onClick={(event) => { event.preventDefault(); handleNavClick(item.id); }}
+              <a key={item.id} href={routePath(language, item.id)} onClick={(event) => { event.preventDefault(); handleNavClick(item.id); }}
                 className={`relative py-2 text-sm font-medium whitespace-nowrap shrink-0 transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#16426B] rounded ${
                   isActive
                     ? 'text-[#16426B] font-semibold'
