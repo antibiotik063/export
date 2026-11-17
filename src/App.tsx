@@ -65,6 +65,9 @@ export default function App({ initialPath }: AppProps) {
     setMeta('meta[property="og:description"]', 'property', 'og:description', pageDescription);
     setMeta('meta[property="og:url"]', 'property', 'og:url', canonical);
     setMeta('meta[property="og:locale"]', 'property', 'og:locale', language === 'fa' ? 'fa_AF' : language === 'ru' ? 'ru_RU' : 'en_US');
+    const shareImage = new URL(ASSETS.heroLogistics, SITE_URL).href;
+    setMeta('meta[property="og:image"]', 'property', 'og:image', shareImage);
+    setMeta('meta[name="twitter:image"]', 'name', 'twitter:image', shareImage);
     setMeta('meta[name="twitter:title"]', 'name', 'twitter:title', title);
     setMeta('meta[name="twitter:description"]', 'name', 'twitter:description', pageDescription);
 
@@ -96,11 +99,14 @@ export default function App({ initialPath }: AppProps) {
       '@context': 'https://schema.org',
       '@type': 'Organization',
       name: 'LLC Eurasia Technology',
+      alternateName: 'ООО «Евразия Технолоджи»',
       url: SITE_URL,
       email: CONTACT_INFO.email,
-      telephone: CONTACT_INFO.phoneDisplay,
+      telephone: CONTACT_INFO.phoneHref.replace('tel:', ''),
+      taxID: '1800048733',
+      identifier: { '@type': 'PropertyValue', propertyID: 'OGRN', value: '1261800003365' },
       contactPoint: [
-        { '@type': 'ContactPoint', telephone: CONTACT_INFO.phoneHref.replace('tel:', ''), contactType: 'sales', availableLanguage: ['English', 'Russian', 'Dari'] },
+        { '@type': 'ContactPoint', telephone: CONTACT_INFO.phoneHref.replace('tel:', ''), contactType: 'sales', availableLanguage: ['en', 'ru', 'fa-AF'] },
         { '@type': 'ContactPoint', telephone: CONTACT_INFO.additionalPhoneHref.replace('tel:', ''), contactType: 'sales', availableLanguage: ['English', 'Russian', 'Dari'] },
       ],
       logo: new URL(ASSETS.logoEmblem, SITE_URL).href,
