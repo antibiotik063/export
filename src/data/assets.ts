@@ -22,5 +22,7 @@ export const CONTACT_INFO = {
   email: 'etechno63@gmail.com',
   phoneDisplay: '+7 987 162-11-11',
   phoneHref: 'tel:+79871621111',
+  additionalPhoneDisplay: '+7 (985) 545-80-57',
+  additionalPhoneHref: 'tel:+79855458057',
   whatsappBase: 'https://wa.me/79871621111',
 } as const;
