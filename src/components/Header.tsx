@@ -3,6 +3,7 @@ import { Menu, X } from 'lucide-react';
 import { ASSETS } from '../data/assets';
 import { TranslationSchema } from '../i18n/translations';
 import { Language, PageRoute } from '../types';
+import { routePath } from '../routing';
 
 interface HeaderProps {
   t: TranslationSchema;
@@ -44,9 +45,9 @@ export function Header({
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/90">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4 lg:gap-8">
         {/* Zone 1: Brand Lockup (single clean line with mix-blend-multiply logo) */}
-        <button
-          type="button"
-          onClick={() => handleNavClick('home')}
+        <a
+          href={routePath(language, 'home')}
+          onClick={(event) => { event.preventDefault(); handleNavClick('home'); }}
           className="flex items-center gap-2.5 text-start shrink-0 whitespace-nowrap rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#16426B]"
         >
           <img
@@ -58,17 +59,14 @@ export function Header({
           <span className="font-display text-base sm:text-lg font-bold tracking-tight text-[#16426B] whitespace-nowrap">
             {t.brandName}
           </span>
-        </button>
+        </a>
 
         {/* Zone 2: Clean Single-Line Navigation */}
         <nav className="hidden lg:flex items-center gap-8" aria-label="Main navigation">
           {navItems.map((item) => {
             const isActive = currentPage === item.id;
             return (
-              <button
-                key={item.id}
-                type="button"
-                onClick={() => handleNavClick(item.id)}
+              <a href={routePath(language, item.id)} onClick={(event) => { event.preventDefault(); handleNavClick(item.id); }}
                 className={`relative py-2 text-sm font-medium whitespace-nowrap shrink-0 transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#16426B] rounded ${
                   isActive
                     ? 'text-[#16426B] font-semibold'
@@ -82,7 +80,7 @@ export function Header({
                     className="absolute inset-x-0 -bottom-[1px] h-0.5 bg-[#F28C00]"
                   />
                 )}
-              </button>
+              </a>
             );
           })}
         </nav>
@@ -139,10 +137,7 @@ export function Header({
           {navItems.map((item) => {
             const isActive = currentPage === item.id;
             return (
-              <button
-                key={item.id}
-                type="button"
-                onClick={() => handleNavClick(item.id)}
+              <a href={routePath(language, item.id)} onClick={(event) => { event.preventDefault(); handleNavClick(item.id); }}
                 className={`w-full text-start px-3 py-2.5 min-h-[44px] rounded-lg text-sm font-medium transition-colors ${
                   isActive
                     ? 'bg-[#16426B]/8 text-[#16426B] font-semibold'
@@ -150,7 +145,7 @@ export function Header({
                 }`}
               >
                 {item.label}
-              </button>
+              </a>
             );
           })}
           <div className="pt-2">
